@@ -6,6 +6,8 @@ const INITIAL_STATE = {
 const reducer = (state = INITIAL_STATE, action) => {
 console.log(action)
     switch (action.type) {
+        case "empty" :
+            return { ...state, itemArray:[].concat() }
         case "getData":
             state.itemArray.push(action.payload)
             return { ...state, itemArray: state.itemArray.concat() }
