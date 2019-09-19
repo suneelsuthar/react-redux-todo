@@ -4,6 +4,7 @@ import firebase from '../Config/Firebase/Firebase'
 let database = firebase.database().ref('/')
 const getData = ()=>{
     return async dispatch =>{
+        dispatch({type:"empty"})
         database.child('todoList').on('child_added',res=>{
             let data = res.val()
             data.id = res.key
